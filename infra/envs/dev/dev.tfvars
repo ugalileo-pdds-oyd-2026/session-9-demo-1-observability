@@ -1,0 +1,9 @@
+aws_region      = "us-west-2"
+app_name        = "session9"
+environment     = "dev"
+vpc_cidr        = "10.0.0.0/16"
+container_image = "REPLACE_WITH_YOUR_ECR_IMAGE_URI"
+container_port  = 5000
+task_cpu        = 256
+task_memory     = 512
+desired_count   = 1
