@@ -16,7 +16,7 @@ terraform {
     bucket         = "session9-demo1-tfstate"
     key            = "session9/demo1/terraform.tfstate"
     region         = "us-west-2"
-    dynamodb_table = "session9-demo1-tflock"
+    use_lockfile   = true
     encrypt        = true
   }
 }

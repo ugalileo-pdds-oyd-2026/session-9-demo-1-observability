@@ -9,8 +9,3 @@ variable "state_bucket_name" {
   type        = string
 }
 
-variable "lock_table_name" {
-  description = "DynamoDB table name for state locking"
-  type        = string
-  default     = "session9-demo1-tflock"
-}
