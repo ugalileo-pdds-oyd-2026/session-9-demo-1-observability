@@ -1,8 +1,8 @@
 aws_region      = "us-west-2"
-app_name        = "session9"
+app_name        = "session9-demo1"
 environment     = "dev"
 vpc_cidr        = "10.0.0.0/16"
-container_image = "439426070073.dkr.ecr.us-west-2.amazonaws.com/dev-session9:latest"
+container_image = "439426070073.dkr.ecr.us-west-2.amazonaws.com/dev-session9-demo1:latest"
 container_port  = 5000
 task_cpu        = 256
 task_memory     = 512
