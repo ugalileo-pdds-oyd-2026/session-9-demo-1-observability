@@ -13,3 +13,5 @@ log_retention_days          = 30
 notification_email          = "augusto.alvarez@galileo.edu"
 http_5xx_threshold          = 5
 latency_threshold_seconds   = 1.0
+estimated_charges_threshold = 10
+monthly_budget_usd          = 50

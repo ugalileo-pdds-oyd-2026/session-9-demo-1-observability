@@ -24,6 +24,13 @@ module "observability" {
   http_5xx_threshold          = var.http_5xx_threshold
   latency_threshold_seconds   = var.latency_threshold_seconds
   alb_arn_suffix              = module.compute.alb_arn_suffix
+  estimated_charges_threshold = var.estimated_charges_threshold
+  monthly_budget_usd          = var.monthly_budget_usd
+
+  providers = {
+    aws           = aws
+    aws.us_east_1 = aws.us_east_1
+  }
 }
 
 module "compute" {

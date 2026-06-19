@@ -16,3 +16,8 @@ output "latency_alarm_name" {
   description = "Name of the latency CloudWatch alarm"
   value       = aws_cloudwatch_metric_alarm.latency.alarm_name
 }
+
+output "estimated_charges_alarm_arn" {
+  description = "ARN of the EstimatedCharges billing alarm. Referenced by the CloudWatch dashboard alarm widget."
+  value       = aws_cloudwatch_metric_alarm.estimated_charges.arn
+}

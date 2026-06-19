@@ -74,4 +74,14 @@ variable "latency_threshold_seconds" {
   default     = 1.0
 }
 
+variable "estimated_charges_threshold" {
+  description = "USD amount above which the EstimatedCharges CloudWatch alarm fires"
+  type        = number
+  default     = 10
+}
 
+variable "monthly_budget_usd" {
+  description = "Monthly AWS cost ceiling in USD. An alert fires at 80% of this value. Note: AWS Budgets reads processed billing data with up to 24-hour delay — not suitable for real-time alerting."
+  type        = number
+  default     = 50
+}
