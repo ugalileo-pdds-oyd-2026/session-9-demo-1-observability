@@ -20,6 +20,10 @@ module "observability" {
   environment                 = var.environment
   aws_region                  = var.aws_region
   log_retention_days          = var.log_retention_days
+  notification_email          = var.notification_email
+  http_5xx_threshold          = var.http_5xx_threshold
+  latency_threshold_seconds   = var.latency_threshold_seconds
+  alb_arn_suffix              = module.compute.alb_arn_suffix
 }
 
 module "compute" {

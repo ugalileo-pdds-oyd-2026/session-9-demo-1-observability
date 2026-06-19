@@ -56,3 +56,22 @@ variable "log_retention_days" {
   type        = number
   default     = 30
 }
+
+variable "notification_email" {
+  description = "Email address for CloudWatch alarm SNS notifications"
+  type        = string
+}
+
+variable "http_5xx_threshold" {
+  description = "Number of HTTP 5xx responses per minute that triggers the alarm"
+  type        = number
+  default     = 5
+}
+
+variable "latency_threshold_seconds" {
+  description = "p90 ALB target response time in seconds that triggers the latency alarm"
+  type        = number
+  default     = 1.0
+}
+
+
