@@ -114,8 +114,17 @@ resource "aws_ecs_task_definition" "app" {
       protocol      = "tcp"
     }]
     environment = [
-      { name = "PORT", value = tostring(var.container_port) }
+      { name = "PORT", value = tostring(var.container_port) },
+      { name = "LOG_GROUP_NAME", value = var.log_group_name }
     ]
+    logConfiguration = {
+      logDriver = "awslogs"
+      options = {
+        "awslogs-group"         = var.log_group_name
+        "awslogs-region"        = "us-west-2"
+        "awslogs-stream-prefix" = "ecs"
+      }
+    }
   }])
 }
 

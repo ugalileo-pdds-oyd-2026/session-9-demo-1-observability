@@ -13,6 +13,15 @@ module "secrets" {
   environment = var.environment
 }
 
+module "observability" {
+  source = "./modules/observability"
+
+  app_name                    = var.app_name
+  environment                 = var.environment
+  aws_region                  = var.aws_region
+  log_retention_days          = var.log_retention_days
+}
+
 module "compute" {
   source = "./modules/compute"
 
@@ -27,4 +36,5 @@ module "compute" {
   task_memory     = var.task_memory
   desired_count   = var.desired_count
   task_role_arn   = module.secrets.task_role_arn
+  log_group_name  = module.observability.log_group_name
 }

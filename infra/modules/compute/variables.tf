@@ -52,3 +52,8 @@ variable "task_role_arn" {
   description = "IAM role ARN for the ECS task"
   type        = string
 }
+
+variable "log_group_name" {
+  description = "CloudWatch log group name injected into the container as LOG_GROUP_NAME. Provided by the observability module output."
+  type        = string
+}

@@ -1,17 +1,25 @@
 import logging
 import os
+import watchtower
 
 from flask import Flask, jsonify
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s %(levelname)s %(name)s %(message)s",
-    handlers=[logging.StreamHandler()],
-)
+LOG_GROUP_NAME = os.environ.get("LOG_GROUP_NAME", "/app/local")
+
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-app = Flask(__name__)
+if LOG_GROUP_NAME != "/app/local":
+    cw_handler = watchtower.CloudWatchLogHandler(
+        log_group_name=LOG_GROUP_NAME,
+        stream_name="app",
+    )
+    cw_handler.setFormatter(logging.Formatter(
+        '{"time":"%(asctime)s","level":"%(levelname)s","msg":"%(message)s"}'
+    ))
+    logger.addHandler(cw_handler)
 
+app = Flask(__name__)
 
 @app.route("/health")
 def health():

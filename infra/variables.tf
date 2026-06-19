@@ -50,3 +50,9 @@ variable "desired_count" {
   type        = number
   default     = 1
 }
+
+variable "log_retention_days" {
+  description = "Days to retain CloudWatch log events"
+  type        = number
+  default     = 30
+}
